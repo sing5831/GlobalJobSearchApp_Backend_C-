@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalJobSearch", "GlobalJobSearch\GlobalJobSearch.csproj", "{3162E04E-CAC2-45D6-98D5-5C36C9C8F75E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropDownFilterDataAccess", "DropDownFilterDataAccess\DropDownFilterDataAccess.csproj", "{72B5E921-1C07-4B2F-B8E3-ECA51E707453}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3162E04E-CAC2-45D6-98D5-5C36C9C8F75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3162E04E-CAC2-45D6-98D5-5C36C9C8F75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3162E04E-CAC2-45D6-98D5-5C36C9C8F75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3162E04E-CAC2-45D6-98D5-5C36C9C8F75E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B5E921-1C07-4B2F-B8E3-ECA51E707453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B5E921-1C07-4B2F-B8E3-ECA51E707453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B5E921-1C07-4B2F-B8E3-ECA51E707453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B5E921-1C07-4B2F-B8E3-ECA51E707453}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B536CBB0-2E27-41DF-B803-E04F7BD26110}
+	EndGlobalSection
+EndGlobal
