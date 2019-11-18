@@ -11,7 +11,7 @@ namespace GlobalJobSearch.Repositories
     {
         public static bool AddJobDescriptionToDB(JobDescription jobDescription)
         {
-            var connectionString = "Data Source=.;Initial Catalog=GlobalJobSearchApp;user id = sa; password = deep06";
+            var connectionString = "Data Source=dbr.fast.sheridanc.on.ca;Initial Catalog=section8;user id = s8u26; password = Sher1dan";
             var query = "INSERT INTO JobDescriptionData(Country, Program, [Job Description]) Values ('@Country', '@Program', '@JobDescription')";
 
             query = query.Replace("@Country", jobDescription.Country)
