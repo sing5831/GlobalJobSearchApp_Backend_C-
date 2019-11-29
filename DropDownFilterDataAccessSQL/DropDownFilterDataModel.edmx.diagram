@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="aa86ae8c3c024f60959503efee49a2eb" Name="Diagram1">
+      <Diagram DiagramId="aa86ae8c3c024f60959503efee49a2eb" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="section8Model.certificate" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="section8Model.course" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="section8Model.customer" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
@@ -21,6 +21,7 @@
         <AssociationConnector Association="section8Model.fk_custno" ManuallyRouted="false" />
         <AssociationConnector Association="section8Model.fk_orderno" ManuallyRouted="false" />
         <AssociationConnector Association="section8Model.fk_partno" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="section8Model.CompanyData" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

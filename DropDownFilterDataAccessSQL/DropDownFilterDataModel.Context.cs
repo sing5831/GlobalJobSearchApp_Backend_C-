@@ -36,5 +36,6 @@ namespace DropDownFilterDataAccessSQL
         public virtual DbSet<part> parts { get; set; }
         public virtual DbSet<student> students { get; set; }
         public virtual DbSet<dept> depts { get; set; }
+        public virtual DbSet<CompanyData> CompanyDatas { get; set; }
     }
 }

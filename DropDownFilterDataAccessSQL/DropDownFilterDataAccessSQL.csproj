@@ -53,6 +53,9 @@
     <Compile Include="certificate.cs">
       <DependentUpon>DropDownFilterDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CompanyData.cs">
+      <DependentUpon>DropDownFilterDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="course.cs">
       <DependentUpon>DropDownFilterDataModel.tt</DependentUpon>
     </Compile>
@@ -127,6 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

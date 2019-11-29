@@ -12,12 +12,12 @@ namespace DropDownFilterDataAccessSQL
     using System;
     using System.Collections.Generic;
     
-    public partial class JobDescriptionData
+    public partial class CompanyData
     {
-        public int ID { get; set; }
-        public string Country { get; set; }
-        public string Program { get; set; }
-        public string Job_Description { get; set; }
+        public int companyId { get; set; }
         public string CompanyName { get; set; }
+        public string Program { get; set; }
+        public string Country { get; set; }
+        public string Job_Description { get; set; }
     }
 }

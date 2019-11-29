@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="section8Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="section8Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6013: The table/view 'section8.S8U26.Campus' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="Campus">
@@ -19,6 +19,16 @@ warning 6013: The table/view 'section8.S8U26.Campus' does not have a primary key
           <Property Name="empid" Type="char" MaxLength="8" Nullable="false" />
           <Property Name="cid" Type="char" MaxLength="9" Nullable="false" />
           <Property Name="datecompleted" Type="date" />
+        </EntityType>
+        <EntityType Name="CompanyData">
+          <Key>
+            <PropertyRef Name="companyId" />
+          </Key>
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+          <Property Name="Program" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Job Description" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="course">
           <Key>
@@ -52,6 +62,7 @@ warning 6002: The table/view 'section8.S8U26.depts' does not have a primary key 
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Country" Type="varchar" MaxLength="100" />
           <Property Name="Program" Type="varchar" MaxLength="100" />
+          <Property Name="Language" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="employee">
           <Key>
@@ -78,6 +89,7 @@ warning 6013: The table/view 'section8.S8U26.employees' does not have a primary 
           <Property Name="Country" Type="varchar" MaxLength="100" />
           <Property Name="Program" Type="varchar" MaxLength="100" />
           <Property Name="Job Description" Type="varchar(max)" />
+          <Property Name="CompanyName" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="orderproduct">
           <Key>
@@ -184,6 +196,7 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
         </Association>
         <EntityContainer Name="section8ModelStoreContainer">
           <EntitySet Name="certificate" EntityType="Self.certificate" Schema="S8U26" store:Type="Tables" />
+          <EntitySet Name="CompanyData" EntityType="Self.CompanyData" Schema="S8U26" store:Type="Tables" />
           <EntitySet Name="course" EntityType="Self.course" Schema="S8U26" store:Type="Tables" />
           <EntitySet Name="customer" EntityType="Self.customer" Schema="S8U26" store:Type="Tables" />
           <EntitySet Name="DropDownFilter" EntityType="Self.DropDownFilter" Schema="S8U26" store:Type="Tables" />
@@ -220,8 +233,7 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
             <End Role="orderproduct" EntitySet="orderproduct" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="section8Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -260,6 +272,7 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Program" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Language" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="employee">
           <Key>
@@ -278,6 +291,7 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
           <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Program" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Job_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="orderproduct">
           <Key>
@@ -420,7 +434,18 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
             <End Role="part" EntitySet="parts" />
             <End Role="orderproduct" EntitySet="orderproducts" />
           </AssociationSet>
+          <EntitySet Name="CompanyDatas" EntityType="section8Model.CompanyData" />
         </EntityContainer>
+        <EntityType Name="CompanyData">
+          <Key>
+            <PropertyRef Name="companyId" />
+          </Key>
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Program" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Job_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -456,6 +481,7 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
           <EntitySetMapping Name="DropDownFilters">
             <EntityTypeMapping TypeName="section8Model.DropDownFilter">
               <MappingFragment StoreEntitySet="DropDownFilter">
+                <ScalarProperty Name="Language" ColumnName="Language" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="Program" ColumnName="Program" />
@@ -474,6 +500,7 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
           <EntitySetMapping Name="JobDescriptionDatas">
             <EntityTypeMapping TypeName="section8Model.JobDescriptionData">
               <MappingFragment StoreEntitySet="JobDescriptionData">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="Program" ColumnName="Program" />
@@ -525,6 +552,17 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
               <MappingFragment StoreEntitySet="depts">
                 <ScalarProperty Name="department_id" ColumnName="department_id" />
                 <ScalarProperty Name="department_name" ColumnName="department_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyDatas">
+            <EntityTypeMapping TypeName="section8Model.CompanyData">
+              <MappingFragment StoreEntitySet="CompanyData">
+                <ScalarProperty Name="Job_Description" ColumnName="Job Description" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

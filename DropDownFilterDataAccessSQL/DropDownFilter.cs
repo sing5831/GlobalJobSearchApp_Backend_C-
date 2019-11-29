@@ -17,5 +17,6 @@ namespace DropDownFilterDataAccessSQL
         public int ID { get; set; }
         public string Country { get; set; }
         public string Program { get; set; }
+        public string Language { get; set; }
     }
 }
