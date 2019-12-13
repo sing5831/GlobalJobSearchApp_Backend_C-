@@ -19,5 +19,9 @@ namespace DropDownFilterDataAccessSQL
         public string Program { get; set; }
         public string Job_Description { get; set; }
         public string CompanyName { get; set; }
+        public string Language { get; set; }
+        public Nullable<int> Year { get; set; }
+        public Nullable<int> Month { get; set; }
+        public Nullable<int> Date { get; set; }
     }
 }

@@ -23,6 +23,18 @@ namespace GlobalJobSearch.Controllers
             return JobDescriptionProcessor.ProcessJobDescription(jobDescription);
         }
 
+
+        [HttpGet]
+        [Route("ListJobDescription")]
+        public bool ListJobDescription(JobDescription jobDescription)
+        {
+            if (jobDescription == null)
+            {
+                return false;
+            }
+            return JobDescriptionProcessor.GetCompanyName(jobDescription);
+        }
+
         [HttpGet]
         [Route("JobDescriptionData")]
         public IEnumerable<JobDescriptionData> Get()
@@ -33,12 +45,25 @@ namespace GlobalJobSearch.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("JobDescriptionData/Get")]
         public JobDescriptionData Get(int id)
         {
             using (section8Entities entities = new section8Entities())
             {
                 return entities.JobDescriptionDatas.FirstOrDefault(e => e.ID == id);
             }
+        }
+
+        [HttpPost]
+        [Route("EditJobDescription")]
+        public bool EditJobDescription(JobDescription jobDescription)
+        {
+            if (jobDescription == null)
+            {
+                return false;
+            }
+            return JobDescriptionProcessor.EditJobDescription(jobDescription);
         }
     }
 }

@@ -5,12 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="section8Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'section8.S8U26.Campus' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Campus">
-          <Property Name="CampusID" Type="varchar" MaxLength="2" />
-          <Property Name="CampusName" Type="varchar" MaxLength="24" />
-        </EntityType>-->
         <EntityType Name="certificate">
           <Key>
             <PropertyRef Name="empid" />
@@ -72,15 +66,6 @@ warning 6002: The table/view 'section8.S8U26.depts' does not have a primary key 
           <Property Name="empname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="empbirthdate" Type="date" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'section8.S8U26.employees' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="employees">
-          <Property Name="employee_number" Type="char" MaxLength="9" />
-          <Property Name="emp_first_name" Type="varchar" MaxLength="50" />
-          <Property Name="department_id" Type="int" />
-          <Property Name="Date_of_birth" Type="date" />
-          <Property Name="last_name" Type="varchar" MaxLength="30" />
-        </EntityType>-->
         <EntityType Name="JobDescriptionData">
           <Key>
             <PropertyRef Name="ID" />
@@ -90,6 +75,10 @@ warning 6013: The table/view 'section8.S8U26.employees' does not have a primary 
           <Property Name="Program" Type="varchar" MaxLength="100" />
           <Property Name="Job Description" Type="varchar(max)" />
           <Property Name="CompanyName" Type="varchar(max)" />
+          <Property Name="Language" Type="varchar" MaxLength="100" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Date" Type="int" />
         </EntityType>
         <EntityType Name="orderproduct">
           <Key>
@@ -119,13 +108,6 @@ warning 6013: The table/view 'section8.S8U26.employees' does not have a primary 
           <Property Name="unitprice" Type="decimal" Precision="6" Scale="2" />
           <Property Name="loc" Type="char" MaxLength="4" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Room">
-          <Property Name="roomID" Type="int" />
-          <Property Name="RoomType" Type="varchar" MaxLength="12" />
-          <Property Name="CampusID" Type="varchar" MaxLength="2" />
-        </EntityType>-->
         <EntityType Name="student">
           <Key>
             <PropertyRef Name="std_id" />
@@ -292,6 +274,10 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
           <Property Name="Program" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Job_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Language" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="Date" Type="Int32" />
         </EntityType>
         <EntityType Name="orderproduct">
           <Key>
@@ -500,6 +486,10 @@ warning 6013: The table/view 'section8.S8U26.Room' does not have a primary key d
           <EntitySetMapping Name="JobDescriptionDatas">
             <EntityTypeMapping TypeName="section8Model.JobDescriptionData">
               <MappingFragment StoreEntitySet="JobDescriptionData">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Country" ColumnName="Country" />

@@ -16,11 +16,18 @@ namespace GlobalJobSearch.Processors
             return JobDescriptionRepository.AddJobDescriptionToDB(jobDescription);
         }
 
-        public static bool GetCompanyName()
+        public static bool EditJobDescription(JobDescription jobDescription)
         {
             //Processing
 
-            return JobDescriptionRepository.getCompanyName();
+            return JobDescriptionRepository.EditJobDescription(jobDescription);
+        }
+
+        public static bool GetCompanyName(JobDescription jobDescription)
+        {
+            //Processing
+
+            return JobDescriptionRepository.getCompanyName(jobDescription);
         }
     }
 }

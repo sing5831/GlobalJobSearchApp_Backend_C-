@@ -32,20 +32,41 @@ namespace GlobalJobSearch.Repositories
         }
         public static bool AddJobDescriptionToDB(JobDescription jobDescription)
         {
-            var query = "INSERT INTO JobDescriptionData(Country, Program, [Job Description], CompanyName, Language) Values ('@Country', '@Program', '@JobDescription', '@CompanyName', '@Language')";
+            var query = "INSERT INTO JobDescriptionData(Country, Program, [Job Description], CompanyName, Language, Year, Month, Date) Values ('@Country', '@Program', '@JobDescription', '@CompanyName', '@Language', '@Year', '@Month', '@Date')";
 
             query = query.Replace("@Country", jobDescription.Country)
                 .Replace("@Program", jobDescription.Program)
                 .Replace("@JobDescription", jobDescription.jobDescription)
                 .Replace("@CompanyName", jobDescription.CompanyName)
-            .Replace("@Language", jobDescription.language) ;
+            .Replace("@Language", jobDescription.language)
+            .Replace("@Year", jobDescription.year)
+            .Replace("@Month", jobDescription.month)
+            .Replace("@Date", jobDescription.date);
 
             return getSQLConnection(query);
         }
 
-        public static bool getCompanyName()
+        public static bool getCompanyName(JobDescription jobDescription)
         {
-            var query = "Select CompanyName from JobDescriptionData";
+            var query = "Select CASE WHEN '@Year' > Year(getdate()) THEN CompanyName WHEN '@YEAR' = Year(getdate()) AND '@Month' > Month(getdate()) THEN CompanyName WHEN '@YEAR' = Year(getdate()) AND '@Month' = Month(getdate()) AND '@Date' >= DATEPART(day, GETDATE()) THEN CompanyName Else 'No Match' END AS CompanyName from JobDescriptionData;";
+
+            query = query.Replace("@Year", jobDescription.year)
+                .Replace("@Month", jobDescription.month)
+                .Replace("@Date", jobDescription.date);
+
+            return getSQLConnection(query);
+        }
+
+        public static bool EditJobDescription(JobDescription jobDescription)
+        {
+            var query = "UPDATE JobDescriptionData SET Country = '@Country', Program = '@Program', [Job Description] = '@JobDescription', CompanyName = '@CompanyName', Language = '@Language' WHERE ID = '@ID'";
+
+            query = query.Replace("@Country", jobDescription.Country)
+                .Replace("@Program", jobDescription.Program)
+                .Replace("@JobDescription", jobDescription.jobDescription)
+                .Replace("@CompanyName", jobDescription.CompanyName)
+            .Replace("@Language", jobDescription.language)
+            .Replace("@ID", jobDescription.ID);
 
             return getSQLConnection(query);
         }
